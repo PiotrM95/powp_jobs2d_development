@@ -20,6 +20,7 @@ import edu.kis.powp.jobs2d.events.SelectTestFigureOptionListener;
 import edu.kis.powp.jobs2d.features.CommandsFeature;
 import edu.kis.powp.jobs2d.features.DrawerFeature;
 import edu.kis.powp.jobs2d.features.DriverFeature;
+import edu.kis.powp.panel.JPanelMouseControl;
 import edu.kis.powp.jobs2d.file.DataFile;
 
 public class TestJobs2dApp {
@@ -124,6 +125,11 @@ public class TestJobs2dApp {
 				setupCommandTests(app);
 				setupLogger(app);
 				setupWindows(app);
+
+				JPanelMouseControl.getInstance()
+						.setjPanel(app.getFreePanel())
+						.setDriverManager(DriverFeature.getDriverManager())
+						.startListener();
 
 				app.setVisibility(true);
 			}
